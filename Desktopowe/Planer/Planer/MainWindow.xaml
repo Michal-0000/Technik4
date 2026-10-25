@@ -1,0 +1,23 @@
+﻿<Window x:Class="Planer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Planer"
+        mc:Ignorable="d"
+        Title="Planer Pokoju 2D" Height="450" Width="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Background="#F0F0F0" Margin="3">
+            <Button Name="btnAddTable" Content="Dodaj Stół" Height="30" Margin="5" Click="btnAddTable_Click"/>
+            <Button Name="btnAddBed" Content="Dodaj Łóżko" Height="30" Margin="5" Click="btnAddBed_Click"/>
+            <TextBlock Name="txtInstructions" Text="Instrukcja: Przeciągnij elementy myszką" Margin="5" TextWrapping="Wrap"/>
+        </StackPanel>
+        <Canvas Name="canvasRoom" Grid.Column="1" Background="#F9F9F9" Margin="3" MouseLeftButtonDown="canvasRoom_MouseLeftButtonDown" 
+                MouseMove="canvasRoom_MouseMove" MouseLeftButtonUp="canvasRoom_MouseLeftButtonUp" MouseRightButtonDown="canvasRoom_MouseRightButtonDown"/>
+    </Grid>
+</Window>

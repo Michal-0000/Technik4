@@ -1,0 +1,20 @@
+Laptop Lenovo,15,3200.50
+Myszka Logi,120,45.00
+Klawiatura Mechaniczna,45,120.00
+Monitor 27 cali,8,899.99
+Słuchawki Gamerskie,60,150.00
+Podkładka RGB,200,25.50
+Kamera Web HD,35,89.90
+Mikrofon USB,22,210.00
+Dysk SSD 1TB,50,299.00
+Pamięć RAM 16GB,40,185.00
+Karta Graficzna RTX,5,2450.00
+Zasilacz 650W,18,310.00
+Obudowa ATX,12,220.00
+Chłodzenie CPU,28,115.00
+Ruter Wi-Fi 6,30,199.99
+Kabel HDMI 2m,150,15.00
+Pendrive 128GB,85,42.50
+Karta Sieciowa,25,65.00
+Głośniki 2.1,14,175.00
+Drukarka Laserowa,7,540.00
