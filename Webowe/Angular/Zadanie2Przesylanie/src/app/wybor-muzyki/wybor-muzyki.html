@@ -1,0 +1,10 @@
+<div class="card">
+<div class="card-body d-grid gap-2">
+    <h5 class="card-title">Wybierz swoją ulubioną muzykę</h5>
+    <select id="muzykaSelect" class="form-select" [(ngModel)]="wybranyRodzaj">
+        <option *ngFor="let muzyka of rodzajeMuzyki" [ngValue]="muzyka">{{muzyka}}</option>
+    </select>
+    <button class="btn btn-primary" type="button" (click)="wyslij()">Wybierz muzykę</button>
+    <app-wynik-muzyka [wynik]="wyslanyRodzaj"></app-wynik-muzyka>
+  </div>
+</div>
