@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card m-3">
+    <div class="card-header bg-transparent">
+      <h5 class="card-title">1. Przełączanie RadioButtonów</h5>
+    </div>
+    <div class="card-body form-check">
+      <button class="btn btn-primary" (click)="przelaczOpcje()">Przełącz radio</button>
+      <label class="mx-2">
+      <input  type="radio" name="radioPrzycisk" value="A" [checked]="!opcja">
+      Opcja A</label>
+      <label class="mx-2">
+      <input  type="radio" name="radioPrzycisk" value="B" [checked]="opcja">
+      Opcja B</label>
+    </div>
+  </div>
+
+  <div class="card m-3">
+    <div class="card-header bg-transparent">
+      <h5 class="card-title">2. Walidacja wartości w Input</h5>
+    </div>
+    <div class="card-body form-check">
+      <input #inputText type="text" class="form-control" (input)="sprawdzTekst(inputText.value)">
+      <h5 class="text-danger">{{tekstWyjscie}}</h5>
+    </div>
+  </div>
+
+  <div class="card m-3">
+    <div class="card-header bg-transparent">
+      <h5 class="card-title">3. Zamiana koloru</h5>
+    </div>
+    <div class="card-body form-check">
+      <button class="btn btn-primary" (click)="zmienKolor()">
+        Zmień kolor
+      </button>
+    </div>
+  </div>
+</div>

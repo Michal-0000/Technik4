@@ -1,0 +1,53 @@
+<div id="baner"
+  [style.background-color] = "kolorb"
+  [style.color] = "kolort">
+  Wybierz samochód marzeń:
+  <select [(ngModel)]="samochod">
+    <option [ngValue]="null">Brak wyboru</option>
+    <option
+    *ngFor="let value of samochody"
+    [ngValue]="value">
+      {{value.marka}} {{value.model}}
+    </option>
+  </select>
+
+  <button (click)="zmienKolor()"
+  type="button"
+  [class.przycisk]="aktywna"
+  [style.color]="kolort">
+  Zmień kolor tła</button>
+</div>
+
+<div id="contener">
+  <div id="panel_lewy">
+    <label class="check">
+      <input type="checkbox"
+      [(ngModel)] ="pokazZdjecie">
+      Pokaż zdjecie
+    </label>
+  </div>
+
+  <div id="panel_srodkowy">
+    <p class="akapit">{{samochod.marka}} {{samochod.model}}</p>
+    <ng-template #brakZdjecia>
+      <p class="center">Brak zdjęcia</p>
+    </ng-template>
+    <br>
+    <img class="center"
+      [src]="samochod.zdjecie"
+      [class.zdjecie]="aktywna"
+      *ngIf="pokazZdjecie; else brakZdjecia">
+  </div>
+
+  <div id="panel_prawy">
+    <ng-container [ngSwitch]="samochod.type">
+      <img src="sport.jpg" *ngSwitchCase="Rodzaj.sportowy">
+      <img src="suv.jpg" *ngSwitchCase="Rodzaj.suv">
+      <img src="cabrio.jpg" *ngSwitchCase="Rodzaj.cabrio">
+    </ng-container>
+    <p>Dane:</p>
+    <ul>
+      <li *ngFor="let item of samochod.dane">{{item}}</li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+/* Styl dla banera */
+#baner {
+    width: 100%;
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+  }
+  
+  /* Styl dla kontenera */
+  #contener {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Style dla paneli */
+  #panel_lewy, #panel_srodkowy, #panel_prawy {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  #panel_lewy {
+    width: 20%;
+    background-color: #f1f1f1;
+    border-right: 2px solid #ccc;
+  }
+  
+  #panel_srodkowy {
+    width: 60%;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  #panel_prawy {
+    width: 20%;
+    background-color: #f1f1f1;
+    border-left: 2px solid #ccc;
+  }
+  
+  /* Dodatkowe style */
+  .center {
+    margin: 0 auto;
+  }
+  
+  .akapit {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .zdjecie {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  
