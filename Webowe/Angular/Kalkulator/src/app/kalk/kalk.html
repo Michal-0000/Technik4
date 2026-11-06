@@ -1,0 +1,20 @@
+<p>kalkulator</p>
+<div class="calculator">
+    <h2>Kalkulator</h2>
+    <div>
+        <label for="num1">Liczba 1: </label>
+        <input id="num1" [(ngModel)]="num1" type="number">
+    </div>
+    <div>
+        <label for="num2">Liczba 2: </label>
+        <input id="num2" [(ngModel)]="num2" type="number">
+    </div>
+    <button (click)="calculate()">Policz</button>
+    <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+    <div *ngIf="result">
+        <p>Suma: {{result.sum}}</p>
+        <p>Różnica: {{result.difference}}</p>
+        <p>Iloczyn: {{result.product}}</p>
+        <p>iloraz: {{result.quotient}}</p>
+    </div>
+</div>
