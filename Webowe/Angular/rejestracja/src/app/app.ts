@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Formularz } from './formularz/formularz';
 import { Zarejestrowani } from './zarejestrowani/zarejestrowani';
+import { Osoba } from './osobaInterfejs';
 
 
 @Component({
@@ -10,6 +11,10 @@ import { Zarejestrowani } from './zarejestrowani/zarejestrowani';
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {
-  protected readonly title = signal('rejestracja');
+export class App {  
+  zarejestrowani: Osoba[] = [];
+
+  OnOsobaZarejestrowana(osoba: Osoba): void {
+    this.zarejestrowani = [...this.zarejestrowani, osoba];
+  }
 }

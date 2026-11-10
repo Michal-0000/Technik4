@@ -1,5 +1,5 @@
 <div class="container">
   <h1>Rejestracja osób</h1>
-  <app-formularz></app-formularz>
-  <app-zarejestrowani></app-zarejestrowani>
+  <app-formularz [osoby]="zarejestrowani" (osobaZarejestrowana)="OnOsobaZarejestrowana($event)"></app-formularz>
+  <app-zarejestrowani [osoby]="zarejestrowani"></app-zarejestrowani>
 </div>

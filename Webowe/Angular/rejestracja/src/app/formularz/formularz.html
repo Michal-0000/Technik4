@@ -1,34 +1,52 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header text-white bg-primary mb-3">
-      <h5 class="card-title">Formularz rejestracyjny</h5>
+<div class="card my-4 shadow-sm">
+    <div class="card-header text-white bg-primary">
+        <h5 class="mb-0 fw-normal">Formularz rejestracyjny</h5>
     </div>    
     <div class="card-body">
-      <form>
-        <div class="row">
-            <div class="col">
-                <label for="imie">Imię</label>
-            <input type="text" id="imie" class="form-control" placeholder="np. Anna">
-            </div>
-            <div class="col">
-                <label for="nazwisko">Nazwisko</label>
-            <input type="text" id="nazwisko" class="form-control" placeholder="np. Kowalska">
-            </div>
+        <div
+            class="alert d-flex align-items-center"
+            [class.alert-success]="zarejestrujWynik.startsWith('Zarejestrowano:')"
+            [class.alert-danger]="zarejestrujWynik === 'Niepoprawne dane' || zarejestrujWynik === 'Ten PESEL jest już zarejestrowany'"
+            role="alert"
+            *ngIf="zarejestrujWynik">
+            <p class="mb-0">{{ zarejestrujWynik }}</p>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="row">
-            <div class="col">
-                <label for="pesel">PESEL</label>
-                <input type="text" id="pesel" class="form-control" placeholder="11 cyfr">
+
+        <form>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="imie">Imię</label>
+                <input type="text" id="imie" class="form-control" placeholder="np. Anna" (input)="OnImieChange($event.target.value)">
+                <p class="text-danger small mt-1 mb-0">{{ imieError }}</p>
+                </div>
+                <div class="col">
+                    <label for="nazwisko">Nazwisko</label>
+                <input type="text" id="nazwisko" class="form-control" placeholder="np. Kowalska" (input)="OnNazwiskoChange($event.target.value)">
+                <p class="text-danger small mt-1 mb-0">{{ nazwiskoError }}</p>
+                </div>
             </div>
-            <div class="col">
-                <label for="dataUrodzenia">Data urodzenia</label>
-                <input type="date" id="dataUrodzenia" class="form-control">
+
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="pesel">PESEL</label>
+                    <input type="text" id="pesel" name="pesel" class="form-control" placeholder="11 cyfr" (input)="OnPeselChange($event.target.value)" [(ngModel)]="peselInput">
+                    <p class="text-danger small mt-1 mb-0">{{ peselError }}</p>
+                </div>
+                <div class="col-4">
+                    <label for="dataUrodzenia">Data urodzenia</label>
+                    <input type="date" id="dataUrodzenia" name="dataUrodzenia" class="form-control" (input)="OnDataUrodzeniaChange($event.target.value)" [(ngModel)]="dataUrodzeniaInput">
+                    <p class="text-danger small mt-1 mb-0">{{ dataUrodzeniaError }}</p>
+                </div>
+                <div class="col-3">
+                    <label for="wiek">Wiek</label>
+                    <input type="number" id="wiek" name="wiek" class="form-control" placeholder="lata" (input)="OnWiekChange($event.target.value)" [(ngModel)]="wiekInput">
+                    <p class="text-danger small mt-1 mb-0">{{ wiekError }}</p>
+                </div>
             </div>
-            <div class="col">
-                <label for="wiek">Wiek</label>
-                <input type="number" id="wiek" class="form-control" placeholder="lata">
-            </div>
-        </div>
-    </form>
-  </div>
+
+            <button type="button" class="btn btn-primary m-1" (click)="OnZarejestrujClick()">Zarejestruj</button>
+            <button type="reset" class="btn btn-light btn-outline-secondary mx-1">Wyczyść</button>
+        </form>
+    </div>
 </div>
