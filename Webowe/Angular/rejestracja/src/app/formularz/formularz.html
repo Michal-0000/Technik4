@@ -10,7 +10,7 @@
             role="alert"
             *ngIf="zarejestrujWynik">
             <p class="mb-0">{{ zarejestrujWynik }}</p>
-            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close" (click)="OnWylaczWiadomosc()"></button>
         </div>
 
         <form>

@@ -104,4 +104,8 @@ export class Formularz {
       this.zarejestrujWynik = 'Niepoprawne dane';
     }
   }
+
+  OnWylaczWiadomosc(): void {
+    this.zarejestrujWynik = '';
+  }
 }
