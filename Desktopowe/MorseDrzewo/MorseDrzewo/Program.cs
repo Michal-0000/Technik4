@@ -51,30 +51,31 @@ namespace MorseDrzewo
         public static string UnknownMorseToString(string morse)
         {
             morse = morse.Trim();
-            if (string.IsNullOrWhiteSpace(morse))
-                return "";
-            if (!Regex.IsMatch(morse, @"^[.\-/]+$"))
+
+            if (!Regex.IsMatch(morse, @"^[.-]+$"))
                 return "Błędne dane";
 
-            string result = "";
-            for (int i = 0; i < morse.Length && i < 4; i++)
+            return string.Join(", ", Read(morse));
+
+            List<string> Read(string segment)
             {
-                result += MorseToChar(morse.Substring(0, i+1));
-                if(i < morse.Length)
+                if (segment.Length == 0)
+                    return new List<string> { "" };
+
+                var results = new List<string>();
+
+                for (int i = 0; i < segment.Length && i < 4; i++)
                 {
-                    result += UnknownMorseToString(morse.Substring(i+1));
+                    char letter = MorseToChar(segment.Substring(0, i + 1));
+
+                    foreach (string end in Read(segment.Substring(i + 1)))
+                    {
+                        results.Add(letter + end);
+                    }
                 }
-                if(i < morse.Length - 1)
-                {
-                    result += ", ";
-                }
+
+                return results;
             }
-            if(morse.Length > 4)
-            {
-                result += UnknownMorseToString(morse.Substring(4));
-            }
-            return result;
-            
         }
     }
 }
