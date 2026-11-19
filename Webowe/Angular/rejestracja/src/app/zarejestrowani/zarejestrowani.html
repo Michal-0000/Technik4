@@ -1,1 +1,41 @@
-<p>zarejestrowani works!</p>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center py-2">
+        <h5 class="mb-0 fw-normal">Zarejestrowane osoby</h5>
+        <span class="badge bg-primary rounded-pill">{{ osoby.length }}</span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped mb-0 align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                    <th>PESEL</th>
+                    <th>Data urodzenia</th>
+                    <th class="text-end">Wiek</th>
+                    <th>Płeć</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let osoba of osoby; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ osoba.imie }}</td>
+                    <td>{{ osoba.nazwisko }}</td>
+                    <td>{{ osoba.pesel }}</td>
+                    <td>{{ osoba.dataUrodzenia | date:'dd.MM.yyyy' }}</td>
+                    <td class="text-end">{{ osoba.wiek }}</td>
+                    <td>{{ osoba.plec }}</td>
+                    <td class="text-end">
+                        <button class="btn btn-outline-danger btn-sm" (click)="osoby.splice(i, 1)">
+                            Usuń
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

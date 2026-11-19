@@ -17,5 +17,7 @@ describe('Formularz', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelectorAll('input[name]').length).toBe(3);
   });
 });
